@@ -7,6 +7,8 @@ struct ContentView: View {
     @Query(sort: [SortDescriptor<TodoItem>(\TodoItem.isCompleted), SortDescriptor<TodoItem>(\TodoItem.createdAt)]) private var items: [TodoItem]
     @State private var showingAddItemView = false
 
+    public init() {} // Added public initializer
+
     var body: some View {
         NavigationStack {
             List {
