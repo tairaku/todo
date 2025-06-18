@@ -1,13 +1,12 @@
 import SwiftUI
-import SwiftData // SwiftData imports Foundation indirectly, but being explicit with Foundation.SortDescriptor
-import Foundation // Explicitly import Foundation for SortDescriptor
+import SwiftData // Only SwiftData and SwiftUI should be imported for this file's core needs
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    // Query now sorts by isCompleted first, then by createdAt, with fully explicit Foundation.SortDescriptor and order
+    // Simplified SortDescriptor, relying on SwiftData's context and default order
     @Query(sort: [
-        Foundation.SortDescriptor<TodoItem>(\TodoItem.isCompleted, order: .forward),
-        Foundation.SortDescriptor<TodoItem>(\TodoItem.createdAt, order: .forward)
+        SortDescriptor(\TodoItem.isCompleted),
+        SortDescriptor(\TodoItem.createdAt)
     ]) private var items: [TodoItem]
     @State private var showingAddItemView = false
 
