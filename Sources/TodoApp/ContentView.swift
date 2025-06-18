@@ -1,12 +1,12 @@
 import SwiftUI
-import SwiftData // Only SwiftData and SwiftUI should be imported for this file's core needs
+import SwiftData // No import Foundation
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    // Simplified SortDescriptor, relying on SwiftData's context and default order
+    // Explicit generic and order for SortDescriptor
     @Query(sort: [
-        SortDescriptor(\TodoItem.isCompleted),
-        SortDescriptor(\TodoItem.createdAt)
+        SortDescriptor<TodoItem>(\TodoItem.isCompleted, order: .forward),
+        SortDescriptor<TodoItem>(\TodoItem.createdAt, order: .forward)
     ]) private var items: [TodoItem]
     @State private var showingAddItemView = false
 
