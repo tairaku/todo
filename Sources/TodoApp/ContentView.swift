@@ -3,8 +3,8 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    // Query now sorts by isCompleted first, then by createdAt
-    @Query(sort: [SortDescriptor(\.isCompleted), SortDescriptor(\.createdAt)]) private var items: [TodoItem]
+    // Query now sorts by isCompleted first, then by createdAt, with explicit root type
+    @Query(sort: [SortDescriptor(\TodoItem.isCompleted), SortDescriptor(\TodoItem.createdAt)]) private var items: [TodoItem]
     @State private var showingAddItemView = false
 
     var body: some View {
