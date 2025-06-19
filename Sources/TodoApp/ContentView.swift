@@ -3,11 +3,8 @@ import SwiftData // No import Foundation
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    // Explicit generic and order for SortDescriptor
-    @Query(sort: [
-        SortDescriptor<TodoItem>(\TodoItem.isCompleted, order: .forward),
-        SortDescriptor<TodoItem>(\TodoItem.createdAt, order: .forward)
-    ]) private var items: [TodoItem]
+    // Query now fetches items without explicit sorting
+    @Query private var items: [TodoItem]
     @State private var showingAddItemView = false
 
     public init() {} // Public initializer
