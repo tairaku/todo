@@ -39,6 +39,6 @@ struct AddItemView: View {
 
 #Preview {
     AddItemView()
-        // Optionally add a model container for preview if it relies on it directly
-        // .modelContainer(for: TodoItem.self, inMemory: true)
+        .accentColor(ColorPalette.skyBlue) // Apply accent color to preview
+        // .modelContainer(for: TodoItem.self, inMemory: true) // Already commented out, good
 }

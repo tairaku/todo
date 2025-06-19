@@ -24,7 +24,8 @@ struct ContentView: View {
                         }
                         Spacer() // Pushes the checkmark to the trailing edge
                         Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                            .foregroundColor(item.isCompleted ? .green : .gray)
+                            // Apply new colors for completion status
+                            .foregroundColor(item.isCompleted ? ColorPalette.limeGreen : ColorPalette.skyBlue)
                             .onTapGesture {
                                 toggleCompletion(for: item)
                             }
@@ -73,4 +74,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: TodoItem.self, inMemory: true)
+        .accentColor(ColorPalette.skyBlue) // Also apply to preview
 }

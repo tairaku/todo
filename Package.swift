@@ -21,9 +21,9 @@ let package = Package(
         .executableTarget(
             name: "TodoApp",
             dependencies: [],
-            path: "Sources/TodoApp",
+            path: "Sources/TodoApp", // Info.plist is now directly in this path
             resources: [ // <<<<< THIS LINE IS MODIFIED
-                .copy("Resources/Info.plist")
+                .copy("Info.plist")
             ]
         ),
         // Test target
