@@ -23,7 +23,7 @@ let package = Package(
             dependencies: [],
             path: "Sources/TodoApp",
             resources: [ // <<<<< THIS LINE IS MODIFIED
-                .process("Resources")
+                .copy("Resources/Info.plist")
             ]
         ),
         // Test target
