@@ -21,8 +21,10 @@ let package = Package(
         .executableTarget(
             name: "TodoApp",
             dependencies: [],
-            path: "Sources/TodoApp", // Specify path to source files
-            resources: [] // If you add assets like .xcassets, they should be listed here
+            path: "Sources/TodoApp",
+            resources: [ // <<<<< THIS LINE IS MODIFIED
+                .process("Resources")
+            ]
         ),
         // Test target
         .testTarget(
